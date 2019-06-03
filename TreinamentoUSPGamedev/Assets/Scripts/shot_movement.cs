@@ -29,10 +29,10 @@ public class shot_movement : MonoBehaviour
         if (hitInfo.name == "Enemy")
         {
             hitInfo.gameObject.GetComponent<enemy_health>().TakeDamage(damage);
-
-            Destroy(gameObject);
-           // Instantiate(impactexplosion, transform.position, transform.rotation);
+             Instantiate(impactexplosion, transform.position, transform.rotation);
         }
+        Destroy(gameObject);
     }
+
 
 }
