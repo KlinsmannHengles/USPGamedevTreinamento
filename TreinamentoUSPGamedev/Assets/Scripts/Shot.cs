@@ -9,33 +9,27 @@ public class Shot : MonoBehaviour
     public Transform firepoint_right, firepoint_left, firepoint_up, firepoint_down;
     //Faz referência ao prefab da bola de fogo.
     public GameObject shotprefab;
-    private float next_Shot = 0.0f;
-    public float fire_Rate = 0.5f;
 
 
 
     void Update()
     {
-        /*dependendo da direção escolhida e de se o tempo minimo para o próximo tiro já passou, instancia um tiro que segue na direção apontada até colidir
-        com um objeto.*/
-        if ((Input.GetKey("w")) && (Time.time > next_Shot))
+        /*dependendo da tecla apertada,  escolhe uma direrã para virar o npersonagem usando "quaternions", que são próprios para usar na rotação.
+         * Além disso, chama a função shoot que é responsãvel por criar e lançar o projétil na direção para a qual o personagem estávirado.*/
+        if (Input.GetKeyDown("w"))
         {
-            next_Shot = Time.time + fire_Rate;
             shoot(firepoint_up);
         }
-        if ((Input.GetKey("d")) && (Time.time > next_Shot))
+        if (Input.GetKeyDown("d"))
         {
-            next_Shot = Time.time + fire_Rate;
             shoot(firepoint_right);
         }
-        if ((Input.GetKey("a")) && (Time.time > next_Shot))
+        if (Input.GetKeyDown("a"))
         {
-            next_Shot = Time.time + fire_Rate;
             shoot(firepoint_left);
         }
-        if ((Input.GetKey("s")) && (Time.time > next_Shot))
+        if (Input.GetKeyDown("s"))
         {
-            next_Shot = Time.time + fire_Rate;
             shoot(firepoint_down);
         }
     }
